@@ -1,3 +1,5 @@
+### Built on top of https://github.com/spurtli/react-konfettikanone
+
 <div align="center">
   <img src="https://travis-ci.org/ksdme/react-text-konfettikanone.svg?branch=master" alt="Travis CI"/>
 </div>
