@@ -1,1 +1,1 @@
-export { Konfettikanone } from "./konfettikanone";
+export { TextKonfettikanone } from "./konfettikanone";

@@ -3,25 +3,30 @@ import classNames from "classnames";
 import { random } from "./utilities";
 import * as styles from "./styles";
 
-const defaultProps = {
-  colors: ["#F6F0FD", "#E3D0FF", "#9C6ADE", "#50248F", "#230051"],
-  types: ["Slow", "Medium", "Fast"],
-  duration: 10,
-  particles: 200,
-  launch: false
-};
-
 interface Props {
   className?: string;
   colors?: string[];
   duration?: number;
+  fontFamily?: string;
+  fontSizes?: string[];
   launch?: boolean;
-  particles?: number;
-  types?: string[];
   onLaunchEnd?(): void;
+  particles?: number;
+  text: string;
+  types?: string[];
 }
 
-export function Konfettikanone(props: Props) {
+const defaultProps = {
+  colors: ["#F6F0FD", "#E3D0FF", "#9C6ADE", "#50248F", "#230051"],
+  fontSizes: ["x-small", "small", "medium", "large", "x-large"],
+  types: ["Slow", "Medium", "Fast"],
+  fontFamily: 'sans-serif',
+  launch: false,
+  duration: 10,
+  particles: 60,
+};
+
+export function TextKonfettikanone(props: Props) {
   const {
     colors,
     className,
@@ -29,10 +34,13 @@ export function Konfettikanone(props: Props) {
     launch,
     particles,
     types,
-    onLaunchEnd
+    onLaunchEnd,
+    fontSizes,
+    fontFamily,
+    text,
   } = {
     ...defaultProps,
-    ...props
+    ...props,
   };
   const confettiWrapper = useRef<HTMLDivElement>(null);
   const [confetti, setConfetti] = useState<null | React.ReactNode>(null);
@@ -41,26 +49,32 @@ export function Konfettikanone(props: Props) {
   function getRandomParticle() {
     const wrapperHeight = confettiWrapper?.current?.offsetHeight || 0;
     const wrapperWidth = confettiWrapper?.current?.offsetWidth;
+
     const relativeDuration = duration * wrapperHeight;
     const animationTime = relativeDuration * 0.4;
     const delay = Math.random() * (relativeDuration - animationTime);
-    const animationDurations = [
-      animationTime,
-      animationTime * 0.8,
-      animationTime * 0.7
-    ];
-    const randomDuration =
-      animationDurations[random(animationDurations.length - 1)];
+
+    const randomFontSize = fontSizes[random(fontSizes.length - 1)];
     const randomColor = colors[random(colors.length - 1)];
     const randomStyle = types[random(types.length - 1)];
     const baseSize = 7;
     const baseSizeVariance = 3;
 
+    const animationDurations = [
+      animationTime,
+      animationTime * 0.8,
+      animationTime * 0.7,
+    ];
+
+    const randomDuration = animationDurations[
+      random(animationDurations.length - 1)
+    ];
+
     return {
-      height: `${random(baseSizeVariance) + baseSize}px`,
-      width: `${random(baseSizeVariance) + baseSize}px`,
+      fontFamily,
       left: `${random(wrapperWidth)}px`,
-      backgroundColor: randomColor,
+      color: randomColor,
+      fontSize: randomFontSize,
       animation: `${styles[randomStyle](
         `${wrapperHeight + baseSize + baseSizeVariance}px`
       )} ${randomDuration}ms linear ${delay}ms 1 forwards`
@@ -72,7 +86,12 @@ export function Konfettikanone(props: Props) {
       const randomStyle = getRandomParticle();
 
       return (
-        <div key={index} style={randomStyle} className={styles.particle} />
+        <div
+          key={index}
+          style={randomStyle}
+          className={styles.particle}>
+          { text }
+        </div>
       );
     });
   }
