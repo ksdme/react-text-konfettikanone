@@ -1,25 +1,21 @@
 <div align="center">
-  <img src="./docs/assets/logo.png" alt="react-konfettikanone" width="500px" />
-</div>
-
-<div align="center">
-  <img src="https://travis-ci.org/spurtli/react-konfettikanone.svg?branch=master" alt="Travis CI"/>
+  <img src="https://travis-ci.org/ksdme/react-text-konfettikanone.svg?branch=master" alt="Travis CI"/>
 </div>
 <br />
 
-`react-konfettikanone` is a light-weight and hardware accelerated React package that lets you celebrate with confetti 🎉🎊
+`react-text-konfettikanone` is a light-weight and hardware accelerated React package that lets you celebrate with text confetti 🎉🎊
 <br />
 
 ### ✨ What it looks like
 
-![react-konfettikanone](./docs/assets/demo.png)
+![react-text-konfettikanone](./docs/assets/demo.png)
 
 <br />
 
 ### 🚀 Setup
 
 ```bash
-yarn add react-konfettikanone
+yarn add react-text-konfettikanone
 ```
 
 <br />
@@ -34,6 +30,18 @@ Extend custom styles
 
 Array of Strings
 `["#F6F0FD", "#E3D0FF", "#9C6ADE", "#50248F", "#230051"]`
+
+### `fontSizes`
+
+Array of String: Usable font sizes of the text
+
+### `fontFamily`
+
+String: Font family to use for the confetti particles
+
+### text
+
+String: Text to use for confetti particles
 
 #### `particles`
 
@@ -56,7 +64,7 @@ Function
 ### 👷🏼‍♀️ Example
 
 ```jsx
-import { Konfettikanone } from "react-konfettikanone";
+import { Konfettikanone } from "react-text-konfettikanone";
 ```
 
 ```jsx

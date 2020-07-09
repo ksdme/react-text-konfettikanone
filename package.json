@@ -1,7 +1,7 @@
 {
-  "name": "react-konfettikanone",
-  "version": "1.0.0",
-  "description": "Hooray – celebration everywhere!",
+  "name": "react-text-konfettikanone",
+  "version": "0.0.1",
+  "description": "Hooray – text celebration everywhere!",
   "main": "lib/index.js",
   "module": "lib/index.module.js",
   "scripts": {
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/spurtli/react-konfettikanone.git"
+    "url": "https://github.com/ksdme/react-text-konfettikanone.git"
   },
   "keywords": [
     "react",
@@ -23,9 +23,9 @@
   "author": "Neele Barthel <hello@neele.codes>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/spurtli/react-konfettikanone/issues"
+    "url": "https://github.com/ksdme/react-text-konfettikanone/issues"
   },
-  "homepage": "https://github.com/spurtli/react-konfettikanone#readme",
+  "homepage": "https://github.com/ksdme/react-text-konfettikanone#readme",
   "dependencies": {
     "classnames": "^2.2.6",
     "emotion": "^10.0.23"
