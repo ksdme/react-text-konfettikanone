@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
-import { Konfettikanone } from "../src/index.ts";
+import { TextKonfettikanone } from "../src/index.ts";
 import * as styles from "./styles.js";
 
 function App() {
@@ -17,13 +17,15 @@ function App() {
 
   return (
     <>
-      <h1 className={styles.h1}>🎉 react-konfettikanone 🎉</h1>
+      <h1 className={styles.h1}>🎉 react-text-konfettikanone 🎉</h1>
       <div className={styles.wrapper}>
         <div className={styles.card}>
-          <Konfettikanone
+          <TextKonfettikanone
             launch={launch}
             onLaunchEnd={onLaunchEnd}
             className={styles.customStyles}
+            fontSizes={['x-small']}
+            text="react-text-konfettikanone"
           />
           <h2>🎊 Hooray, hooray! 🎊</h2>
           <p>
